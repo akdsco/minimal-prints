@@ -1,9 +1,10 @@
 import React, {useContext, useState} from "react";
 import {Context} from "../Context";
+import PropTypes from 'prop-types';
 
 // TODO update .json file with alt property for each image, add few more photos
 
-export default function Image({className, img}) {
+function Image({className, img}) {
   const [isHovered, setIsHovered] = useState(false);
   const {toggleFavourite} = useContext(Context);
   const imageSize = typeof className === 'undefined' ? '' : className;
@@ -34,3 +35,14 @@ export default function Image({className, img}) {
     </div>
   )
 }
+
+Image.propTypes = {
+  className: PropTypes.string,
+  img: PropTypes.shape({
+    id: PropTypes.string.isRequired,
+    url: PropTypes.string.isRequired,
+    isFavorite: PropTypes.bool
+  })
+};
+
+export default Image;
