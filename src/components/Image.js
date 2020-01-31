@@ -1,13 +1,15 @@
-import React, {useState} from "react";
+import React, {useContext, useState} from "react";
+import {Context} from "../Context";
 
 // TODO update .json file with alt property for each image, add few more photos
 
 export default function Image({className, img}) {
   const [isHovered, setIsHovered] = useState(false);
-
+  const {toggleFavourite} = useContext(Context);
   const imageSize = typeof className === 'undefined' ? '' : className;
 
-  const heartIcon = isHovered && <i className="ri-heart-line favorite"/>;
+  const heartIcon = isHovered &&
+    <i onClick={() => toggleFavourite(img.id)} className={`ri-heart-${img.isFavorite ? 'fill' : 'line'} favorite`}/>;
   const cartIcon = isHovered && <i className="ri-add-circle-line cart"/>;
 
   return(
