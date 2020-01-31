@@ -4,6 +4,7 @@ const Context = React.createContext(undefined, undefined);
 
 function ContextProvider(props) {
   const [allPhotos, setAllPhotos] = useState([]);
+  const [cartItems, setCartItems] = useState([]);
 
   const url = 'https://raw.githubusercontent.com/akdsco/memory-prints-images/master/images.json';
 
@@ -16,15 +17,19 @@ function ContextProvider(props) {
   function toggleFavourite(id) {
     const updatedAllPhotos = allPhotos.map(photo => {
       if(photo.id === id) {
-        return {...photo, isFavorite: !photo.isFavorite}
+        return {...photo, isFavourite: !photo.isFavourite}
       }
       return photo;
     });
     setAllPhotos(updatedAllPhotos);
   }
 
+  function addToCart(newCartItem){
+    setCartItems(prevState => [...prevState, newCartItem])
+  }
+
   return(
-    <Context.Provider value={{allPhotos, toggleFavourite}}>
+    <Context.Provider value={{allPhotos, toggleFavourite, addToCart}}>
       {props.children}
     </Context.Provider>
   )

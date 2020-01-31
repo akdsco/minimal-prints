@@ -6,18 +6,18 @@ import PropTypes from 'prop-types';
 
 function Image({className, img}) {
   const [isHovered, setIsHovered] = useState(false);
-  const {toggleFavourite} = useContext(Context);
+  const {toggleFavourite, addToCart} = useContext(Context);
   const imageSize = typeof className === 'undefined' ? '' : className;
 
  function heartIcon(func) {
-   if(img.isFavorite) {
-     return <i className='ri-heart-fill favorite' onClick={func}/>;
+   if(img.isFavourite) {
+     return <i className='ri-heart-fill favourite' onClick={func}/>;
    } else if(isHovered) {
-     return <i className='ri-heart-line favorite' onClick={func}/>
+     return <i className='ri-heart-line favourite' onClick={func}/>
    }
  }
 
-  const cartIcon = isHovered && <i className="ri-add-circle-line cart"/>;
+  const cartIcon = isHovered && <i className="ri-add-circle-line cart" onClick={() => addToCart(img)}/>;
 
   return(
     <div
@@ -41,7 +41,7 @@ Image.propTypes = {
   img: PropTypes.shape({
     id: PropTypes.string.isRequired,
     url: PropTypes.string.isRequired,
-    isFavorite: PropTypes.bool
+    isFavourite: PropTypes.bool
   })
 };
 
