@@ -8,8 +8,14 @@ export default function Image({className, img}) {
   const {toggleFavourite} = useContext(Context);
   const imageSize = typeof className === 'undefined' ? '' : className;
 
-  const heartIcon = isHovered &&
-    <i onClick={() => toggleFavourite(img.id)} className={`ri-heart-${img.isFavorite ? 'fill' : 'line'} favorite`}/>;
+ function heartIcon(func) {
+   if(img.isFavorite) {
+     return <i className='ri-heart-fill favorite' onClick={func}/>;
+   } else if(isHovered) {
+     return <i className='ri-heart-line favorite' onClick={func}/>
+   }
+ }
+
   const cartIcon = isHovered && <i className="ri-add-circle-line cart"/>;
 
   return(
@@ -23,7 +29,7 @@ export default function Image({className, img}) {
         src={img.url}
         className="image-grid"
       />
-      {heartIcon}
+      {heartIcon(() => toggleFavourite(img.id))}
       {cartIcon}
     </div>
   )
