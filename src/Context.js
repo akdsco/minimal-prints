@@ -10,6 +10,7 @@ function ContextProvider(props) {
 
   useEffect(() => {
     fetch(url)
+
       .then(res => res.json())
       .then(data => setAllPhotos(data));
   },[]);
@@ -29,7 +30,7 @@ function ContextProvider(props) {
   }
 
   return(
-    <Context.Provider value={{allPhotos, toggleFavourite, addToCart}}>
+    <Context.Provider value={{allPhotos, toggleFavourite, addToCart, cartItems}}>
       {props.children}
     </Context.Provider>
   )
