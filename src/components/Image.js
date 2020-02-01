@@ -1,11 +1,13 @@
 import React, {useContext, useState} from "react";
 import {Context} from "../Context";
 import PropTypes from 'prop-types';
+import useHover from "../hooks/useHover";
 
 // TODO update .json file with alt property for each image, add few more photos
 
 function Image({className, img}) {
-  const [isHovered, setIsHovered] = useState(false);
+  // const [isHovered, setIsHovered] = useState(false);
+  const [isHovered, ref] = useHover();
   const {toggleFavourite, addToCart, cartItems, removeFromCart} = useContext(Context);
   const imageSize = typeof className === 'undefined' ? '' : className;
 
@@ -28,9 +30,8 @@ function Image({className, img}) {
 
   return(
     <div
+      ref={ref}
       className={`${imageSize} image-container`}
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
     >
       <img
         alt=''
