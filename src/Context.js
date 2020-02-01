@@ -31,12 +31,23 @@ function ContextProvider(props) {
 
   function removeFromCart(id) {
     setCartItems(prevState => prevState.filter(item => item.id !== id));
-    // const updateCart = cartItems.filter(item => item.id !== id);
-    // setCartItems(updateCart);
+  }
+
+  function emptyCart() {
+    setCartItems([]);
   }
 
   return(
-    <Context.Provider value={{allPhotos, toggleFavourite, cartItems, addToCart, removeFromCart}}>
+    <Context.Provider
+      value={{
+        allPhotos,
+        toggleFavourite,
+        cartItems,
+        addToCart,
+        removeFromCart,
+        emptyCart
+      }}
+    >
       {props.children}
     </Context.Provider>
   )
