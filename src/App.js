@@ -5,6 +5,8 @@ import {Switch, Route} from 'react-router-dom'
 import Cart from "./pages/Cart";
 import Photos from "./pages/Photos";
 
+// TODO implement local storage to keep track of cart and favourites
+
 function App() {
   return (
     <div>

@@ -13,24 +13,20 @@ export default function Cart() {
   ));
 
   function placeOrder() {
-    let itemsBought = 'Shopping cart is empty, try loading it up';
-
     if(cartItems.length > 0) {
       setOrderButtonText("Ordering.. ");
+      let itemsBought = "You bought picture";
       setTimeout(() => {
         if (cartItems.length === 1) {
-          itemsBought = 'You bought picture ' + cartItems[0].id
+          itemsBought = itemsBought + ' ' + cartItems[0].id
         } else if (cartItems.length > 1) {
-          itemsBought = 'You bought pictures ' + cartItems.map(item => item.id);
+          itemsBought = itemsBought + 's ' + cartItems.map(item => item.id);
         }
         emptyCart();
         setOrderButtonText("Place Order");
         console.log(itemsBought);
       }, 3000);
-    } else {
-      console.log(itemsBought);
     }
-
   }
 
   return (
@@ -38,9 +34,12 @@ export default function Cart() {
       <h1>Check out</h1>
       {cartItemElements}
       <p className="total-cost">Total: {totalCostDisplay}</p>
-      <div className="order-button">
-        <button onClick={placeOrder}>{orderButtonText}</button>
-      </div>
+      {cartItems.length > 0 ?
+        <div className="order-button">
+          <button onClick={placeOrder}>{orderButtonText}</button>
+        </div> :
+        <p>You have no items in your cart.</p>
+      }
     </main>
   )
 }
