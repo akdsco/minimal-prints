@@ -1,7 +1,7 @@
 import React, {useContext} from "react"
-import {getClass} from "../utils";
-import {Context} from "../Context";
-import Image from "../components/Image";
+import {getClass} from "../utils"
+import {Context} from "../Context"
+import Image from "../components/Image"
 
 export default function Photos() {
   const {allPhotos} = useContext(Context);

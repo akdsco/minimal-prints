@@ -1,7 +1,7 @@
-import React, {useContext, useState} from "react";
-import {Context} from "../Context";
+import React, {useContext} from "react"
+import {Context} from "../Context"
 import PropTypes from "prop-types"
-import useHover from "../hooks/useHover";
+import useHover from "../hooks/useHover"
 
 function CartItem({item}) {
   const [isBinIconHovered, ref] = useHover(false);

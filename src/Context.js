@@ -6,7 +6,7 @@ function ContextProvider(props) {
   const [allPhotos, setAllPhotos] = useState([]);
   const [cartItems, setCartItems] = useState([]);
 
-  const url = 'https://raw.githubusercontent.com/akdsco/memory-prints-images/master/images.json';
+  const url = 'https://raw.githubusercontent.com/akdsco/minimal-prints-img/master/images.json';
 
   useEffect(() => {
     fetch(url)

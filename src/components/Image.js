@@ -1,7 +1,7 @@
-import React, {useContext, useState} from "react";
-import {Context} from "../Context";
-import PropTypes from 'prop-types';
-import useHover from "../hooks/useHover";
+import React, {useContext} from "react"
+import {Context} from "../Context"
+import PropTypes from "prop-types"
+import useHover from "../hooks/useHover"
 
 // TODO update .json file with alt property for each image, add few more photos
 
