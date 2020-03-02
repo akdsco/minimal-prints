@@ -10,12 +10,12 @@ import Photos from "./pages/Photos"
 
 function App() {
   return (
-    <div>
-      <Header />
+    <div data-test='component-app'>
+      <Header data-test='component-header' />
 
       <Switch>
         <Route exact path='/'>
-          <Photos />
+          <Photos data-test='component-photos' />
         </Route>
         <Route path='/cart'>
           <Cart/>
