@@ -6,7 +6,6 @@ import useHover from "../hooks/useHover"
 // TODO update .json file with alt property for each image, add few more photos
 
 function Image({className, img}) {
-  // const [isHovered, setIsHovered] = useState(false);
   const [isHovered, ref] = useHover();
   const {toggleFavourite, addToCart, cartItems, removeFromCart} = useContext(Context);
   const imageSize = typeof className === 'undefined' ? '' : className;

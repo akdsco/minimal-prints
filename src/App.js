@@ -1,5 +1,6 @@
 import React from 'react'
 import './styles.css'
+import 'remixicon/fonts/remixicon.css'
 import Header from "./components/Header"
 import {Switch, Route} from 'react-router-dom'
 import Cart from "./pages/Cart"
