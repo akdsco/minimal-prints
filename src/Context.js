@@ -60,9 +60,18 @@ function ContextProvider(props) {
     setCartItems(prevState => [...prevState, newCartItem])
   }
 
+  /**
+   * @function removes item from a cart
+   * @param id - uses id to verify item to be removed
+   */
+
   function removeFromCart(id) {
     setCartItems(prevState => prevState.filter(item => item.id !== id));
   }
+
+  /**
+   * @function empties the cart
+   */
 
   function emptyCart() {
     setCartItems([]);
