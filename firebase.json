@@ -1,0 +1,17 @@
+{
+  "hosting": {
+    "site": "minimal-prints",
+    "public": "build/",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
+    "rewrites": [
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
+    ]
+  }
+}
